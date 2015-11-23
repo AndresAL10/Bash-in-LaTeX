@@ -1,0 +1,527 @@
+\documentclass[11pt]{article}
+\usepackage[spanish]{babel}
+\title{\textbf{COMANDOS IMPORTANTES BASH\\ DGIIM}}
+\author{Javier S\'aez Maldonado}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Mover entre directorios}
+\textbf{cd} directorio
+Eso te lleva al directorio que elijas.\\
+\textbf{\~}  Lleva a home y \textbf{/} lleva al directorio ra\'iz del sistema.
+
+\section{Listar los archivos de un directorio}
+\textbf{ls} [opcion]  [archivo] \\
+
+
+-a \hspace{2cm} Lista los archivos de directorio, incluyendo a los que su nombre empieza por un punto
+\\
+
+-l \hspace{2cm} los muestra en formato largo
+\\
+
+-r \hspace{2cm} los lista en orden inverso
+\\
+
+-R \hspace{2cm} lista los subdirectorios recursivamente además del direc\hspace{2cm}torio actual
+\\
+
+-t \hspace{2cm} lista según la fecha de modificación
+
+\section{Mostrar rutas completas}
+\textbf{pwd} [opcion]\\
+Esto muestra el directorio completo de trabajo actual\\
+-P \hspace{2cm} MUestra el directorio fisico sin enlaces simbólicos
+
+\section{Directorios}
+\textbf{mkdir}[opcion] [nombredirectorio] \hspace{2cm} Crea los directorios si no existen\\
+\textbf{rmdir}[opcion] [directorio] \hspace{2cm} Elimina los directorios\\
+
+\section{Archivos}
+\textbf{touch} [archivo] 
+
+\hspace{2cm} Crea un archivo, y si existia, se pone la fecha y hora actual
+\\
+
+\textbf{rm} [opcion] 
+
+\hspace{2cm} Borra archivos o directorios\\
+
+\hspace{2cm} -r 
+\hspace{2cm}Borra recursivamente\\
+
+\textbf{cp} [opcion] [archivo o directorio] \hspace{2cm} Copia el archivo primero al segundo\\
+
+\hspace{2cm}\textbf{-s} crea un enlace en vez de copiar el archivo\\
+
+\hspace{2cm} \textbf{-r} copia recursivamente\\
+
+\textbf{mv} [opcion] [inicio] [final] \hspace{2cm} mueve archivos \\
+
+\section{Mostrar archivos}
+
+\textbf{cat} [opcion] [archivo] \hspace{2cm} muestra el contenido de un archivo\\
+
+\hspace{2cm} \textbf{-E} \hspace{2cm} imprime \$ al final de cada linea\\
+
+\hspace{2cm} \textbf{-b} \hspace{2cm} Enumera las líneas no vacías\\
+
+\hspace{2cm} \textbf{-n} \hspace{2cm} Enumera cada linea\\
+
+\hspace{2cm} \textbf{-s} \hspace{2cm} Suprime las líneas no vacías\\
+
+\newpage
+
+\textbf{head} [opcion][archivo]  Muestra la parte inicial de un archivo, 10 lineas por defecto \\
+
+
+
+\hspace{2cm} \textbf{--bytes=[-]K} \hspace{2cm} Imprime las primeras K bytes (con "-" imprime todo menos las ultimas k bytes)
+\\
+
+\hspace{2cm} \textbf{--lines=K} \hspace{2cm} imprime las primeras K lineas (Con "-" imprime todo menos las ultimas k lineas)\\
+
+\textbf{tail} [opcion][archivo] Muestra la parte final de un archivo, por defecto 10 lineas. \\
+
+\hspace{2cm} \textbf{--bytes=K} \hspace{2cm} imprime las ultimas K bytes\\
+
+\hspace{2cm} \textbf{--lines=K} \hspace{2cm} Imprime las ultimas K lineas \\
+
+\textbf{sort} \hspace{2cm}cion][archivo] \hspace{2cm} Ordena el contenido de un archivo\\
+
+\textbf{wc} [opcion][archivo] \hspace{2cm} Imprime el numero de lineas, palabras y bytes de un archivo segun el parametro \\
+
+\hspace{2cm} \textbf{-c} \hspace{2cm} Imprime el numero de bytes\\
+
+\hspace{2cm} \textbf{-m} \hspace{2cm} Imprime el numero de caracteres\\
+
+\hspace{2cm} \textbf{-l}
+\hspace{2cm} Imprime el numero de lineas\\
+
+\hspace{2cm} \textbf{w}
+\hspace{2cm} Imprime el numero de palabras\\
+
+\hspace{2cm} \textbf{-L}
+\hspace{2cm} Imprime la longitud de la linea mas larga\\
+
+
+
+
+\subsection {Metacaracteres de archivo}
+
+\textbf{?} \hspace{2cm} Representa cualquier caracter en la posicion indicada\\
+
+\textbf{*} \hspace{2cm} Representa cualquier caracter\\
+
+\textbf{[]} \hspace{2cm} Representa un rango de caracteres, separados por - si estan separados\\
+
+\textbf{\{\}} \hspace{2cm} Sustituye un conjunto de palabras separadas por comas que tienen partes comunes\\
+
+
+\section{Permisos}
+\textbf{chmod} [opcion][archivo] \hspace{2cm} Cambia los permisos de acceso a archivos, añadiendo con + y quitando con - \\
+
+\hspace{2cm} \textbf{u,g,o,a} \hspace{2cm} Propietario, Grupo, Resto de usuarios y Todos los usuarios, (en ese orden)\\
+
+\hspace{2cm} \textbf{r,w,x} \hspace{2cm} Lectura, Escritura, Ejecucion \\
+
+\section{Imprimir en pantalla}
+
+\textbf{echo} \hspace{2cm} y \hspace{2cm} \textbf{printf}\\
+Escribiendo algo entre comillas dobles depues de ellos, se imprime lo de dentro de las comillas en la terminal\\
+
+\textbf{Printf} puede realizar mas funciones que echo.\\
+Esta, imprime los argumentos segun el formato. SI pones un numero entre el \% y la letra de formato, se deja una separacion antes del ultimo caracter de tantos caracteres como indique el numero. Si el numero es negativo, se deja la separacion a partir del primer caracter con el siguiente argumento. Para dar formato se usa:\\
+
+\hspace{2cm} \textbf{\textbackslash "} \hspace{2cm} Comillas dobles \\
+
+\hspace{2cm} \textbf{\textbackslash '} \hspace{2cm} Comilla simple\\
+
+\hspace{2cm}\textbf{\textbackslash \textbackslash} \hspace{2cm} Barra invertida\\
+
+\hspace{2cm}\textbf{\textbackslash b} \hspace{2cm} Nueva linea\\
+
+\hspace{2cm}\textbf{\textbackslash t}\hspace{2cm} Tabulador\\
+
+\hspace{2cm}\textbf{\textbackslash 0n}\hspace{2cm} n=numero octal que representa un caracter ASCII de 8 bits\\
+
+\hspace{2cm}\textbf{\%d} \hspace{2cm} Un numero con signo\\
+
+\hspace{2cm}\textbf{\%f}\hspace{2cm} Un numero decimal sin notacion exponencial\\
+
+\hspace{2cm}\textbf{\%q}\hspace{2cm} Entrecomilla una cadena\\
+
+\hspace{2cm} \textbf{\%s}
+\hspace{2cm} MUestra una cadena sin entrecomillar\\
+
+\hspace{2cm}\textbf{\%x}
+\hspace{2cm} Muestra un numero en hexadecimal\\
+
+\hspace{2cm}\textbf{\%o} \hspace{2cm} Muestra un numero en octal \\
+
+
+
+
+\textbf{date} [opcion] \hspace{2cm} Imprime fechas y horas\\
+
+\hspace{2cm} \textbf{\%a}\hspace{2cm} imprime las siglas del dia de la semana\\
+
+\hspace{2cm} \textbf{\%A} \hspace{2cm} imprime el dia de la semana completo\\
+
+\hspace{2cm} \textbf{\%b} \hspace{2cm} Imprime las siglas del mes \\
+
+\hspace{2cm} \textbf{\%B} \hspace{2cm} Imprime el mes completo\\
+
+\hspace{2cm} \textbf{\%c}
+\hspace{2cm} Cambia el orden de salida al orden español\\
+
+\hspace{2cm} \textbf{\%C}
+\hspace{2cm} Imprime los dos primeros digitos del año\\
+
+\hspace{2cm} \textbf{\%d} \hspace{2cm} Imprime el dia del mes\\
+
+\hspace{2cm} \textbf{\%D} \hspace{2cm} Imprime la fecha\\
+
+\hspace{2cm} \textbf{\%F}\hspace{2cm} Imprime la fecha completa \\
+
+\hspace{2cm} \textbf{\%H}\hspace{2cm} Imprime la hora\\
+
+\hspace{2cm} \textbf{\%I} \hspace{2cm} Tambien imprime la hora\\
+
+\hspace{2cm} \textbf{\%j}\hspace{2cm} Imprime el dia del a\~no\\
+
+
+\hspace{2cm} \textbf{\%m}\hspace{2cm} Imprime el numero del mes\\
+
+\hspace{2cm} \textbf{\%M} \hspace{2cm} Imprime el minuto\\
+
+\hspace{2cm} \textbf{\%n}
+\hspace{2cm} Imprime una nueva linea\\
+
+\hspace{2cm} \textbf{\%r} \hspace{2cm} Imprime la hora, también se puede hacer como \hspace{0.5cm}  \textbf{\%R}\\
+
+\hspace{2cm} \textbf{\%S} \hspace{2cm} Imprime los segundos\\
+
+\hspace{2cm} \textbf{\%t}\hspace{2cm} Imprime una tabulacion\\
+
+\hspace{2cm} \textbf{\%u} \hspace{2cm} Imprime el dia de la semana de forma numerica\\
+
+\hspace{2cm} \textbf{\%V} \hspace{2cm} Imprime la semana del a\~no. Tambien se puede hacer con \textbf{\%W}\\
+
+
+\hspace{2cm} \textbf{\%y}\hspace{2cm} Imprime los dos ultimos digitos del a\~no\\
+
+\hspace{2cm} \textbf{\%Y}\hspace{2cm} Imprime el a\~no.
+
+\vspace{1cm}
+
+
+
+\section{Metacaracteres de redireccion}
+ 
+\textbf{ ">  nombre} \hspace{2cm} Redirecciona la entrada de una orden para que la obtenga del archivo nombre\\
+
+\textbf{ "< nombre} \hspace{2cm} Redirige la salida a un archivo de ese nombre\\
+
+\textbf{\& nombre} \hspace{2cm} La salida estandar se combia con la salida de error y se escriben en el archivo nombre \\
+
+\textbf{">"> nombre} \hspace{2cm} Es igual que "">" pero añadiendo la salida al final del archivo, sin sobreescribir\\
+
+\textbf{2"> nombre} \hspace{2cm} Redirige la salida de error a un archivo \\
+
+\textbf{\textbar \hspace{0.25cm} nombre} \hspace{2cm}  Crea un caue entre dos ordenes, la salida de la primera se usa como entrada de la segunda \\
+
+\textbf{\textbar \&} \hspace{2cm} Crea un cauce entra dos ordenes usando las salidas estandar y error como entrada de la segunda\\
+
+
+\subsection { Metacaracteres sintacticos }
+
+\textbf{;} \hspace{2cm} Separa ordenes que se ejecutan secuencialmente\\
+
+\textbf{()} \hspace{2cm} Aisla ordenes separadas\\
+
+\textbf{\&\&} \hspace{2cm} Ejecuta dos ordenes si la primera tiene exito \\
+
+\textbf{\textbar\textbar} \hspace{2cm} Separa ordenes, ejecutando la segunda si la primera falla\\
+
+
+\section {Variables}
+
+Para asignar una variable se pone el nombre de la variable, un signo igual y el valor que queremos asignar, que puede ser una constante u otra variable. A cada lado del signo igual no debe haber ningun espacio en blanco. SI delante o detras del igual dejamos un espacio en blanco obtendremos un error, porque lo tomará como si fuera una orden y sus argumentos, no como una variable. Ademas el nombre de una variable puede contener pero no empezar por un digito. \\
+
+Las variables pueden ser: \\
+a) Cadenas, cuyo valor es una secuencia de caracteres\\
+b) Numeros, para usarlos en operaciones aritmeticas\\
+c) Constantes\\
+d) Vectores o arrays, conjunto de elementos a los que se accede mediante un indice, que suele ser un numero entero(contando el 0). Para definir estas variables, ponemos los elementos del vector separados por espacios, y para acceder a uno de ellos escribimos \$(variable(numeroelemento))\\
+
+
+\textbf{env/printenv}[opcion] \hspace{2cm} Permite visualizar las variables de entorno o globales comunes a todos los shells. Para estas, se usan letras mayusculas\\
+
+\textbf{set} \hspace{2cm} Permite visualizar las variables locales \\
+
+
+
+
+\textbf{\$?} \hspace{2cm} Esta variable contiene el coigo de retorno de la ultima orden ejecutada, bien sea una instruccion o un guion\\
+
+\textbf{unset} [variable]
+\hspace{2cm} Borra la variable y sus atributos\\
+
+\textbf{declare} [-iarx] [-p][variable[valor]] \hspace{2cm} Crea variables con ciertos atributos\\
+
+\hspace{2cm} \textbf{-i} \hspace{2cm} Indica que la variable es numerica\\
+
+\hspace{2cm}\textbf{-p} \hspace{2cm} Permite visualizar los atributos de la variable\\
+
+\hspace{2cm}\textbf{-a}\hspace{2cm} Indica que es una matriz\\
+
+\hspace{2cm}\textbf{-r}\hspace{2cm} indica que es de solo lectura\\
+
+\hspace{2cm}\textbf{-x}\hspace{2cm} Indica que es exportable\\
+
+
+\textbf{export} [-fn] [variable[valor]] 
+\hspace{2cm}\textbf{export -p }\\
+Exporta las variables locales para poder usarlas fuera del shell actual.Si se le da un valor antes, este se le asigna antes de exportarla.\\
+
+\hspace{2cm} \textbf{-f}\hspace{2cm} Se refiere a funciones del shell\\
+
+\hspace{2cm}\textbf{-n}\hspace{2cm} Borra la propiedad de exportacion para las variables \\
+
+\hspace{2cm}\textbf{-p} \hspace{2cm} Muestra una lista de las variables y funciones exportadas \\
+
+\subsection{Expresiones con variables }
+
+El shell bas ofrece dos posibles sintaxis para manejar expresiones aritmeticas haciendo uso de lo que se denomina expresion aritmetica o sustitucion aritmetica, que evalua una expresion aritmetica y sustituye el resultado de la expresion en el lugar donde se usa \\
+
+\hspace{2cm} \textbf{\$((...))} \hspace{3cm} \textbf{\$[...]}\\
+
+Hay que tener en cuenta que las variables que se usen en una expresion aritmetica no necesitan ir precedidas del simbolo \$ para ser sustituidas por su valor, aunque si lo llevan no sera causa de error, y que cualquier expresion aritmetica puede contener otras expresiones aritmeticas ya que se pueden anidar \\
+
+\section{Uso de comillas}
+
+\textbf{Dobles:} Su acotacion es debil. Protegen cadenas desactivando el significado de los caracteres especiales que haya entre ellas.(Excepto los caracteres !,\$ y `)\\
+
+\textbf{Simples:} Su acotacion es mas fuerte. Protegen las cadenas desactivando el significado de los caracteres especiales que haya entre ellas, menos el caracter !.\\
+
+\textbf{Invertidas:} Ejecuta las ordenes que se encuentren encerradas entre ellas e incluye en el mismo sitio el resultado que den estas ordenes. Se pueden sustituir por \$(argumentos)\\
+
+\subsection{Expresiones}
+\textbf{expr} expresion \hspace{2cm} Imprime en pantalla el valor de la expresion. Entre los argumentos y el operador debe haber un espacio.\\
+
+\subsection{Alias}
+\textbf{alias} [-p][nombre[='valor']]\\
+Define o muestra alias. Dentro de un alias y entre comillas podemos poner varias ordenes separadas por ";" de tal forma que se ejecutaran cada una de ellas secuencialmente\\
+\hspace{2cm} \textbf{-p} \hspace{2cm} Muestra todos los alias definidos en formato reusable\\
+
+\section{Find}
+
+\textbf{find} [-H][-L][-P][directorios][expresion]\\
+Este comando explora una rama de directorios buscando archivos que cumplan unos criterios. Por defecto, visualiza todos los archivos y directorios del directorio local y subdirectorios incluso los ocultos\\
+
+\hspace{2cm} \textbf{-H}\hspace{2cm} Solo sigue enlaces simbolicos al procesar los argumentos de la linea de comandos\\
+
+\hspace{2cm} \textbf{-L}\hspace{2cm} Sigue los enlaces simbolicos\\
+
+\hspace{2cm} \textbf{-P}\hspace{2cm} Nunca sigue los enlaces simbolicos\\
+
+Se pueden poner tambien algunas expresiones para limitar la busqueda\\
+
+\hspace{2cm} \textbf{-name}nombre \hspace{2cm} Busca por nombre de archivo\\
+
+\hspace{2cm}\textbf{-atime} n\hspace{2cm} Busca por el ultimo acceso, siendo n el numero sin signo si quieres numero de dias exacto, con un + si quieres un numero de dias mayor al numero y con un - si quieres un numero de dias menor al numero\\
+
+\hspace{2cm}\textbf{-type d} \hspace{2cm} Busca directorios\\
+
+\hspace{2cm}\textbf{-type f} \hspace{2cm} Busca archivos regulares\\
+
+\hspace{2cm}\textbf{-size}
+ n \hspace{2cm} Busca archivos por tamaño de bloques. Funciona igual que el -atime, y se pueden incluir las letras c para buscar en bytes, k para buscar en kilobytes, M para buscar por Megabytes y G para buscar por Gygabyes \\
+ 
+ \hspace{2cm} \textbf{-exec} \hspace{2cm} Permite añadir una orden que se aplicará a los archivos localizados. Se situa a continuacion de la opcion y debe terminarse con un espacio, un caracter \textbackslash y a continuacion un ;. Se usa \{\} para representar el nombre de los archivos localizados\\
+ 
+ \hspace{2cm} \textbf{-ok} \hspace{2cm} Es similar a -exec, pero solicita confirmacion en cada archivo encontrado antes de encontrar la orden \\
+ 
+ \section {Grep}
+ 
+ \textbf{grep} [opciones]patron[archivo]\\
+
+Permite buscar cadenas en archivos usando patrones para especificar esa cadena. Lee de una lista de archivos especificados como argumentos y escribe aquellas lineas que contengan la cadena. Se pueden buscar lineas especiales usando:\\
+
+\hspace{2cm} \textbf{-x}\hspace{2cm} Localiza las lineas que coincidan totalmente con el patron especificado \\
+
+\hspace{2cm} \textbf{-v}\hspace{2cm} Selecciona todas las lineas que no contengan el patron especificado \\
+
+\hspace{2cm} \textbf{-c}\hspace{2cm} Produce solo un recuento de lineas coincidentes \\
+
+\hspace{2cm} \textbf{-i}\hspace{2cm} Ignora las distinciones entre mayusculas y minusculas\\
+
+\hspace{2cm} \textbf{-n}\hspace{2cm} Añade el numero de linea en el archivo fuente a la salida de las coincidencias \\
+
+\hspace{2cm} \textbf{-l}\hspace{2cm} Selecciona solo los nombres de los archivos que coincidan con el patron de busqueda\\
+
+\hspace{2cm} \textbf{-e}\hspace{2cm} Es especial para el uso de multiples patrones o si el patron empieza por el caracter -\\
+
+\hspace{2cm} \textbf{-E}\hspace{2cm} Toma la expresion como una expresion regular extendida (egrep)\\
+
+\hspace{2cm} \textbf{-F}\hspace{2cm} TOma la expresion como una cadena literal escapando los simbolos (fgrep)\\
+
+\hspace{2cm} \textbf{-r}\hspace{2cm} Lee todos los subdirectorios recursivamente\\
+
+
+Hay tambien algunos caracteres especiales:\\
+
+\vspace{2mm}
+
+\hspace{2cm} \textbf{[aeiou]}\hspace{2cm} , que busca una vocal minuscula\\
+
+\hspace{2cm} \textbf{[A-Z0-9]}\hspace{2cm} Una mayuscula o una cifra\\
+
+\hspace{2cm} \textbf{[\^0-9]}\hspace{2cm} BUsca cualquier caracter que no sea una cifra\\
+
+\hspace{2cm} \textbf{*}\hspace{2cm} Indica que el elemento que le precede debe estar 0 o mas veces \\
+
+\hspace{2cm} \textbf{.}\hspace{2cm} Concuerda con un caracter\\
+
+\hspace{2cm} \textbf{\$}\hspace{2cm} SI aparece al final de la expresion significa final de linea\\
+
+\hspace{2cm} \textbf{\^}\hspace{2cm} Si aparece al principio de la expresion significa principio de linea\\
+
+\hspace{2cm} \textbf{\textbackslash}\hspace{2cm} Elimina el significa especial al caracter que le sigue \\
+
+\subsection {Egrep}
+
+\textbf{egrep} patron [archivo] \hspace{2cm} Es lo mismo que grep -E\\
+
+\hspace{2cm} \textbf{?}\hspace{2cm} Indica que el elemento que le precede debe estar 0 o 1 vez\\
+
+\hspace{2cm} \textbf{+}\hspace{2cm} Indica que el elemento que le precede debe estar una o mas veces\\
+ 
+ \hspace{2cm} \textbf{\{n\}}\hspace{2cm} Indica que el elemento que le precede debe estar exactamente n veces \\
+ 
+ \hspace{2cm} \textbf{\{n,m\}}\hspace{2cm} INdica que el elemento que le precede debe estar entre n y m veces \\
+ 
+ \hspace{2cm} \textbf{(expr1 \textbar expr2)}\hspace{2cm} Indica que puede aparecer expr1 o expr2\\
+ 
+ \subsection{fgrep}
+ 
+ \textbf{fgrep} patron [archivo] \hspace{2cm} es lo mismo que grep -F\\
+ 
+ \subsection{rgrep}
+ 
+ \textbf{rgrep} patron [archivo] \hspace{2cm} es lo mismo que grep -r\\
+ 
+ 
+ \section{Guiones o Script}
+ 
+Los conceptos importantes a la hora de crear un guion segun unos argumentos son: \\
+
+\vspace{3mm}
+
+\hspace{2cm} \textbf{\$0}\hspace{2cm} Nombre del guion o script llamado, solo se usa dentro del guion\\
+
+\hspace{2cm} \textbf{\$1... \$\{n\}}\hspace{2cm}
+SOn los argumentos que se le dan a un guion. A partir del numero 9, se dan entre llaves. \\
+
+\hspace{2cm} \textbf{\$*}\hspace{2cm} Contiene el nombre del guion y todos los argumentos que se le han dado\\
+
+\hspace{2cm} \textbf{\$@}\hspace{2cm} Es equivalente a \$*\\
+
+\hspace{2cm} \textbf{arg:-val}\hspace{2cm} Si el argumento tiene valor y es no nulo, continua con us valor, y si no se le asigna el valor indicado por val\\
+
+\hspace{2cm} \textbf{arg:?val}\hspace{2cm} Si el argumento tiene valor y es no nulo, sustituye su valor. En caso contrario, imprime el valor de val y sale del guion. SI val es omitida, imprime un mensaje indicando que el argumento es nulo o no esta asignado \\
+
+\section{Operadores aritmeticos}
+
+\textbf{+,-,*,/,\%} \hspace{2cm} Son suma, resta, multiplicacion, division y resto de la division\\
+
+\textbf{**}\hspace{2cm} Potenciacion\\
+
+\textbf{++} \hspace{2cm} Incremento en una unidad. PUede ir como prefijo o sufijo de una variable. Si se usa como prefijo (++variable) primero se incrementa la variable y luego se hace lo que se desee con ella; si se utiliza como sufijo (variable++) primero se hace lo que se quiera con la variable y luego se incrementa \\
+
+
+ \textbf{--} \hspace{2cm}  Decremento de la variable en una unidad. Funciona igual que el incremento.\\
+ 
+ \textbf{(...)} \hspace{2cm}  Indica una agrupacion para evaluar conjuntamente, indicando el orden de evaluacion de las subexpresiones\\
+ 
+ \textbf{,} \hspace{2cm}  Es un separador de expresiones con evaluacion secuencial\\
+ 
+ \textbf{=} \hspace{2cm}  si x=expresion, se asigna a x el resultado de evaluar la expresion. No puede haber huecos en blanco a los lados del igual\\
+ 
+ \textbf{+= -=} \hspace{2cm} x+=y equivale a x=x+y e igual con el menos pero con un menos \\
+ 
+ \textbf{*= /=} \hspace{2cm}  Es igual que el anterior pero con producto y cociente \\
+ 
+ \textbf{\%=} \hspace{2cm}  x\%=y equivale a x=x\%y\\
+ 
+ 
+ \subsection{Operadores relacionales}
+ 
+ \textbf{A=B A==B A -eq B} \hspace{2cm}  A es igual a B\\
+ 
+ \textbf{A!= B A -ne B } \hspace{2cm}  A es distinta de B\\
+ 
+ \textbf{A }
+ 
+ //ME FALTA AQUI UN TROZO Y MODIFICAR LOS ANTERIORES MAYOR QUE //
+ 
+ 
+ \section{Test}
+ 
+ \textbf{test} expresion \\
+ Esta orden evalua un condicional y da como salida un 0 si la expresion ha dado como resultado verdadera (true) o un 1 si la evaluacion ha resultado falsa (false) o se dio un argumento no valido \\
+ 
+ Expresiones, indicaremos lo que comprueba:\\
+ 
+\vspace{3mm}
+
+\hspace{2cm} \textbf{-a} archivo \hspace{2cm}  Es un archivo y existe\\
+
+\hspace{2cm} \textbf{-b} archivo \hspace{2cm} archivo existe y es un dispositivo de bloques \\
+
+\hspace{2cm} \textbf{-c} archivo \hspace{2cm} archivo existe y es un dispositivo de caracteres \\
+
+\hspace{2cm} \textbf{-d} archivo \hspace{2cm} archivo existe y es un directorio \\
+
+\hspace{2cm} \textbf{-f} archivo \hspace{2cm} archivo existe y es un archivo plano o regular \\
+
+\hspace{2cm} \textbf{-G} archivo \hspace{2cm} archivo existe y es propiedad del mismo grupo del usuario \\
+
+\hspace{2cm} \textbf{-h} archivo \hspace{2cm} archivo existe y es un enlace simbolico \\
+
+\hspace{2cm} \textbf{-O} archivo \hspace{2cm} archivo existe y es propiedad del usuario \\
+
+\hspace{2cm} \textbf{-r} archivo \hspace{2cm} archivo existe y el usuario tiene permiso de lectura sobre el\\
+
+\hspace{2cm} \textbf{-w} archivo \hspace{2cm} archivo existe y el usuario tiene permiso de escritura sobre el\\
+
+\hspace{2cm} \textbf{-x} archivo \hspace{2cm} archivo existe y el usuario tiene permiso de ejecucion sobre el \\
+
+\hspace{2cm} \textbf{-x} archivo \hspace{2cm} archivo existe y el usuario tiene permiso de ejecucion sobre el, o es un directorio y el usuario tiene permiso de busqueda en el \\
+
+\hspace{2cm} \textbf{-s} archivo \hspace{2cm} archivo existe y no es vacio \\
+
+\hspace{2cm} \textbf{archivo1 -nt archivo2} archivo \hspace{2cm} archivo 1 es mas reciente que archivo 2 segun la fecha de modificacion o si archivo1 existe y archivo2 no\\
+
+\hspace{2cm} \textbf{archivo1 -ot archivo2} archivo \hspace{2cm} archivo 1 es mas antiguo que archivo 2 segun la fecha de modificacion o si archivo1 existe y archivo2 no\\
+
+
+\hspace{2cm} \textbf{archivo1 -ef archivo2} archivo \hspace{2cm} archivo 1 es un enlace duro a archivo 2, es decir, si ambos se refieren a los mismos numero de dispositivo e inode\\
+
+
+
+
+ 
+
+
+
+\hspace{2cm} 
+
+\hspace{2cm}
+
+
+\end {document}
+
