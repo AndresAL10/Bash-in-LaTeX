@@ -33,7 +33,8 @@ Eso te lleva al directorio que elijas.\\
 \section{Mostrar rutas completas}
 \textbf{pwd} [opcion]\\
 Esto muestra el directorio completo de trabajo actual\\
--P \hspace{2cm} MUestra el directorio fisico sin enlaces simbólicos
+
+\hspace{0.5cm} \textbf{-P} \hspace{2cm} Muestra el directorio fisico sin enlaces simbólicos
 
 \section{Directorios}
 \textbf{mkdir}[opcion] [nombredirectorio] \hspace{2cm} Crea los directorios si no existen\\
@@ -153,8 +154,8 @@ Esta, imprime los argumentos segun el formato. SI pones un numero entre el \% y 
 
 \hspace{2cm}\textbf{\%q}\hspace{2cm} Entrecomilla una cadena\\
 
-\hspace{2cm} \textbf{\%s}
-\hspace{2cm} MUestra una cadena sin entrecomillar\\
+\textbf{\%s}
+\hspace{2cm} Muestra una cadena sin entrecomillar\\
 
 \hspace{2cm}\textbf{\%x}
 \hspace{2cm} Muestra un numero en hexadecimal\\
@@ -221,15 +222,15 @@ Esta, imprime los argumentos segun el formato. SI pones un numero entre el \% y 
 
 \section{Metacaracteres de redireccion}
  
-\textbf{ ">  nombre} \hspace{2cm} Redirecciona la entrada de una orden para que la obtenga del archivo nombre\\
+\textbf{ \textgreater \hspace{.03cm} nombre} \hspace{2cm} Redirecciona la entrada de una orden para que la obtenga del archivo nombre\\
 
-\textbf{ "< nombre} \hspace{2cm} Redirige la salida a un archivo de ese nombre\\
+\textbf{ \textless \hspace{.03cm} nombre} \hspace{2cm} Redirige la salida a un archivo de ese nombre\\
 
 \textbf{\& nombre} \hspace{2cm} La salida estandar se combia con la salida de error y se escriben en el archivo nombre \\
 
-\textbf{">"> nombre} \hspace{2cm} Es igual que "">" pero añadiendo la salida al final del archivo, sin sobreescribir\\
+\textbf{\textgreater \textgreater \hspace{.03cm} nombre} \hspace{2cm} Es igual que "">" pero añadiendo la salida al final del archivo, sin sobreescribir\\
 
-\textbf{2"> nombre} \hspace{2cm} Redirige la salida de error a un archivo \\
+\textbf{2 \textgreater \hspace{.03cm} nombre} \hspace{2cm} Redirige la salida de error a un archivo \\
 
 \textbf{\textbar \hspace{0.25cm} nombre} \hspace{2cm}  Crea un caue entre dos ordenes, la salida de la primera se usa como entrada de la segunda \\
 
@@ -380,7 +381,7 @@ Hay tambien algunos caracteres especiales:\\
 
 \hspace{2cm} \textbf{[A-Z0-9]}\hspace{2cm} Una mayuscula o una cifra\\
 
-\hspace{2cm} \textbf{[\^0-9]}\hspace{2cm} BUsca cualquier caracter que no sea una cifra\\
+\hspace{2cm} \textbf{[\^0-9]}\hspace{2cm} Busca cualquier caracter que no sea una cifra\\
 
 \hspace{2cm} \textbf{*}\hspace{2cm} Indica que el elemento que le precede debe estar 0 o mas veces \\
 
@@ -460,16 +461,28 @@ SOn los argumentos que se le dan a un guion. A partir del numero 9, se dan entre
  
  \subsection{Operadores relacionales}
  
- \textbf{A=B A==B A -eq B} \hspace{2cm}  A es igual a B\\
+ \textbf{A=B /A==B /A -eq B} \hspace{2cm}  A es igual a B\\
  
- \textbf{A!= B A -ne B } \hspace{2cm}  A es distinta de B\\
+ \textbf{A!= B /A -ne B } \hspace{2cm}  A es distinta de B\\
  
- \textbf{A }
+\textbf{A \textless B} \textbf{/A -lt B} \hspace{2cm}  A es menor que B\\
+  
+\textbf{A \textgreater B  /A -gt B}\hspace{2cm}  A es mayor que B\\ 
+
+\textbf{A \textless = B} \textbf{/A -le B} \hspace{2cm}  A es menor o igual que B\\
+
+
+\textbf{A \textgreater =  B / A -ge B}\hspace{2cm}  A es mayor o igual que B\\ 
+
+\textbf{!A} \hspace{4cm} A es falsa\\
+
+\textbf{A \&\& B / A -a B} \hspace{2cm} A y B son verdaderas\\
+
+\textbf{A \textbar\textbar B/ A -o B} \hspace{4cm} A es verdadera o B es falsa
+
+
  
- //ME FALTA AQUI UN TROZO Y MODIFICAR LOS ANTERIORES MAYOR QUE //
- 
- 
- \section{Test}
+\section{Test}
  
  \textbf{test} expresion \\
  Esta orden evalua un condicional y da como salida un 0 si la expresion ha dado como resultado verdadera (true) o un 1 si la evaluacion ha resultado falsa (false) o se dio un argumento no valido \\
